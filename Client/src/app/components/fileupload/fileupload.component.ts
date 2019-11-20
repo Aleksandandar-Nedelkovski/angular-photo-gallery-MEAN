@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FilePreviewService } from 'src/app/services/file-preview-service.service';
+import { MatDialogRef } from '@angular/material';
+import { IPictureModel } from 'src/app/types';
 
 @Component({
   selector: 'atp-fileupload',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FileuploadComponent implements OnInit {
 
-  constructor() { }
+  protected imageSource: IPictureModel | null;
+  protected message: any;
+  protected description: string;
+  protected tags: string;
+
+  constructor(
+    private dialog: MatDialogRef<FileuploadComponent>,
+    private preview: FilePreviewService) { }
 
   ngOnInit() {
   }
 
+  public OnImageSelected(files: any): void {
+    this.preview.Preview(files).then(r => {
+      this.imageSource = r;
+    }).catch(r => {
+      this.message = r;
+    });
+  }
+
+  public Save(): void {
+    this.imageSource.Description = this.description;
+    this.imageSource.Tags = this.tags;
+    this.dialog.close(this.imageSource);
+  }
 }

@@ -4,9 +4,9 @@ import { IPictureModel, PictureModel } from '../types';
 @Injectable({
   providedIn: 'root'
 })
-export class FilePreviewServiceService {
-  public async Preview(files: any): Promise<IPictureModel> {
-    return await new Promise((resolve, reject) => {
+export class FilePreviewService {
+  public Preview(files: any): Promise<IPictureModel> {
+    return new Promise((resolve, reject) => {
       if (files.length === 0) {
         return;
       }
