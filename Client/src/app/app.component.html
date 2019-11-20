@@ -2,7 +2,7 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [opened]="false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item>Import Image</a>
+      <a mat-list-item (click)="ImportImage()">Import image</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -10,8 +10,8 @@
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Photo Gallery - MEAN</span>
+      <span>Advanced TypeScript</span>
     </mat-toolbar>
-    <!-- <atp-page-body></atp-page-body> -->
+    <atp-page-body></atp-page-body>
   </mat-sidenav-content>
 </mat-sidenav-container>
