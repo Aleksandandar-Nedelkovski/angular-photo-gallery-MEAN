@@ -1,4 +1,4 @@
-import express from "express";
+import express, { IRouter } from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 
@@ -21,5 +21,6 @@ export class Server {
     return this;
   }
 }
+
 
 new Server(3000).Start();
