@@ -1,8 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 
 export class Mongo {
-  constructor(private url: string = "mongodb://localhost:27017/angular-picture-library-MEAN") {
-  }
+  constructor(private url: string = "mongodb://localhost:27017/angular-photo-gallery-MEAN") {}
 
   public Connect(): void {
     mongoose.connect(this.url, (e: any) => {
